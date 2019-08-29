@@ -1,29 +1,51 @@
-/******************************************
-Treehouse FSJS Techdegree:
-project 1 - A Random Quote Generator
-******************************************/
+// Array literal which contains quotes' objects
+const quotes = [
+  {
+    quote: "I'm selfish, impatient and a little insecure. I make mistakes, I am out of control and at times hard to handle. But if you can't handle me at my worst, then you sure as hell don't deserve me at my best.",
+    source: "Marilyn Monroe",
+    citation: "Speech",
+    year: 1968
+  },
+  {
+    quote: "Two things are infinite: the universe and human stupidity; and I'm not sure about the universe.",
+    source: "Albert Einstein",
+    citation: "Speech",
+    year: 1947
+  },
+  {
+    quote:"A room without books is like a body without a soul.",
+    source:"Marcus Tallius Cicero",
+    citation: "Essay",
+  },
+  {
+    quote:"Be the change that you wish to see in the world.",
+    Source: "Mahatma Gandhi",
+    citation: "Speech"
+  },
+  {
+    quote:"If you want to know what a man's like, take a good look at how he treats his inferiors, not his equals.",
+    source:"J.K.Rowling",
+    citation: "Harry Potter and the Goblet of Fire",
+    year: 2000
+  },
+  {
+    quote:"A friend is someone who knows all about you and still loves you.",
+    Source:"Elbert Hubbard"
+  },
+  {
+    quote:"It is better to remain silent at the risk of being thought a fool, than to talk and remove all doubt of it.",
+    Source: "Maurice Switzer",
+    citation: "Book: Mrs. Goose"
+  }
+]
 
-// Study guide for this project - https://drive.google.com/file/d/1s5grutGuQFwJcQP8bFwEI69Q8FCkGdDk/view?usp=sharing
 
-
-/*** 
-  Create the array of quote objects and name it `quotes`.
-  Add at least five quote objects to the `quotes` array.
-  Give each quote object a `quote` and `source` property.
-  Add the `citation` property to at least one object in the array.
-  Add the `year` property to at least one object in the array.
-  Use console.log() to log your array of quotes to the console.
-***/
-
-
-
-
-/***
-  Create the `getRandomQuote` function to:
-   - Create a variable to store a random number 
-   - Cse the random number to `return` a random quote object from the `quotes` array.
-***/
-
+// create a function to choose randomly a quote
+function getRandomQuote(){
+  let randomNbr = Math.floor(Math.random() * quotes.length);
+  let randomQuotes = quotes[randomNbr];
+  return randomQuotes;
+}
 
 
 
@@ -39,7 +61,14 @@ project 1 - A Random Quote Generator
    - Don't forget to close that final `p` tag.
    - Set the `innerHTML` of the `quote-box` div to the HTML string. 
 ***/
-
+function printQuote(){
+  const quotesRandom = getRandomQuote();
+  let sentence = "";
+  sentence = document.getElementById('quote-box').innerHTML = quotes;
+  for(let i = 0; i < quotes.length; i++){
+    
+  }
+}
 
 
 
