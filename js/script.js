@@ -37,7 +37,7 @@ const quotes = [
     Source: "Maurice Switzer",
     citation: "Book: Mrs. Goose"
   }
-]
+];
 
 
 // create a function to choose randomly a quote
@@ -45,30 +45,35 @@ function getRandomQuote(){
   let randomNbr = Math.floor(Math.random() * quotes.length);
   let randomQuotes = quotes[randomNbr];
   return randomQuotes;
-}
+};
 
-
-
-/***
-  Create the `printQuote` function to: 
-   - Call the `getRandomQuote` function and assign it to a variable.
-   - Create a variable for the HTML string and set it equal to an empty string.
-   - Use the HTML template in the instructions or the markup in the index.html file, AND 
-     the random quote vairable to build your HTML string.
-   - Add the quote and source section to the HTML string.
-   - Use an if statement to check for the citation property before adding it to the HTML string.
-   - Use an if statement to check for the year property before adding it to the HTML string.
-   - Don't forget to close that final `p` tag.
-   - Set the `innerHTML` of the `quote-box` div to the HTML string. 
-***/
+//showing the quotes in the browser
 function printQuote(){
+  //calling og the getRandomQuote function
   const quotesRandom = getRandomQuote();
   let sentence = "";
-  sentence = document.getElementById('quote-box').innerHTML = quotes;
-  for(let i = 0; i < quotes.length; i++){
+
+  //condition to decide what will appear in the browser.
+  if(quotesRandom.citation && quotesRandom.year){
+    sentence += "<p class='quote'>" + quotesRandom.quote + "</p>";
+    sentence += "<p class='source'>" +quotesRandom.source + "<span class='citation'>" + quotesRandom.citation + "</span><span class='year'>" + quotesRandom.year +"</span></p>";
+  }else if(quotesRandom.citation){
+    sentence += "<p class='quote'>" + quotesRandom.quote + "</p>";
+    sentence += "<p class='source'>" + quotesRandom.source + "<span class='citation'>" + quotesRandom.citation + "</span></p>";
     
+  }else if(quotesRandom.year){
+    sentence += "<p class='quote'>" + quotesRandom.quote + "</p>";
+    sentence += "<p class='source'>" + quotesRandom.source + "<span class='year'>" + quotesRandom.year + "</span></p>";
+
+  }else{
+    sentence += "<p class='quote'>" + quotesRandom.quote + "</p>";
+    sentence += "<p class='source'>" + quotesRandom.source + "</p>";
   }
-}
+
+  const HTML = document.getElementById('quote-box').innerHTML = sentence;
+  return HTML;
+};
+
 
 
 
