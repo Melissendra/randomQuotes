@@ -21,7 +21,7 @@ const quotes = [
   },
   {
     quote:"Be the change that you wish to see in the world.",
-    Source: "Mahatma Gandhi",
+    source: "Mahatma Gandhi",
     citation: "Speech",
     tag:"Thinking"
   },
@@ -34,12 +34,12 @@ const quotes = [
   },
   {
     quote:"A friend is someone who knows all about you and still loves you.",
-    Source:"Elbert Hubbard",
+    source:"Elbert Hubbard",
     tag: "Thinking"
   },
   {
     quote:"It is better to remain silent at the risk of being thought a fool, than to talk and remove all doubt of it.",
-    Source: "Maurice Switzer",
+    source: "Maurice Switzer",
     citation: "Book: Mrs. Goose",
     tag: "Humor"
   },
@@ -84,26 +84,15 @@ function printQuote(){
   const quotesRandom = getRandomQuote();
   let sentence = "";
 
-  // condition to decide what will appear in the browser.
-  if(quotesRandom.citation && quotesRandom.year && quotesRandom.tag){
-    sentence += "<p class='quote'>" + quotesRandom.quote + "</p>";
-    sentence += "<p class='source'>" +quotesRandom.source + "<span class='citation'>" + quotesRandom.citation + "</span><span class='year'>" + quotesRandom.year +"</span><span class='tag'>, "+ quotesRandom.tag + "</span></p>";
-  }else if(quotesRandom.citation){
-    sentence += "<p class='quote'>" + quotesRandom.quote + "</p>";
-    sentence += "<p class='source'>" + quotesRandom.source + "<span class='citation'>" + quotesRandom.citation + "</span></p>";
+  sentence += "<p class='quote'>" + quotesRandom.quote + "</p>";
+  sentence += "<p class='source'>" + quotesRandom.source;
     
-  }else if(quotesRandom.year){
-    sentence += "<p class='quote'>" + quotesRandom.quote + "</p>";
-    sentence += "<p class='source'>" + quotesRandom.source + "<span class='year'>" + quotesRandom.year + "</span></p>";
 
-  }else if(quotesRandom.tag){
-    sentence += "<p class='quote'>" + quotesRandom.quote + "</p>";
-    sentence += "<p class='source'>" + quotesRandom.source + "<span class='tag'>,  " + quotesRandom.tag+ "</span></p>";
-
-  }else{
-    sentence += "<p class='quote'>" + quotesRandom.quote + "</p>";
-    sentence += "<p class='source'>" + quotesRandom.source + "</p>";
+  // condition to decide what will appear in the browser.
+  if(randomQuotes.citation){
+    sentence += "span class='citation'>" + quotesRandom.citation + "</span></p>";
   }
+  
 
   const HTML = document.getElementById('quote-box');
   HTML.innerHTML = sentence;
