@@ -64,7 +64,7 @@ function getRandomQuote(){
   let randomNbr = Math.floor(Math.random() * quotes.length);
   let randomQuotes = quotes[randomNbr];
   return randomQuotes;
-};
+}
 
 // function for getting a random color
 function getRandomColor(){
@@ -89,10 +89,15 @@ function printQuote(){
     
 
   // condition to decide what will appear in the browser.
-  if(randomQuotes.citation){
-    sentence += "span class='citation'>" + quotesRandom.citation + "</span></p>";
+  if(quotesRandom.citation){
+    sentence += "<span class='citation'>" + quotesRandom.citation + "</span>";
   }
-  
+  if(quotesRandom.year){
+    sentence += "<span class='year'>" + quotesRandom.year + "</span>";
+  }
+  if(quotesRandom.tag){
+    sentence += "<span class='tag'>,  " + quotesRandom.tag+ "</span></p>";
+  }
 
   const HTML = document.getElementById('quote-box');
   HTML.innerHTML = sentence;
@@ -104,7 +109,7 @@ function printQuote(){
 
   // set the button the same color as the body background
   document.getElementById("loadQuote").style.backgroundColor = randomColor;
-};
+}
 
 // auto-refresh quotes
 setInterval( () => {

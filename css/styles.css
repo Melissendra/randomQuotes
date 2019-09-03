@@ -104,3 +104,9 @@ body {
     font-size: 1.25rem;
   }
 }
+
+@media (max-width: 420px) {
+  #loadQuote{
+    margin-bottom: 10%;
+  }
+}
