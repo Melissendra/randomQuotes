@@ -1,5 +1,8 @@
+//variable which will contains all the quotes that are sawn.
+let viewedQuotes = [];
+
 // Array literal which contains quotes' objects
-const quotes = [
+let quotes = [
   {
     quote: "I'm selfish, impatient and a little insecure. I make mistakes, I am out of control and at times hard to handle. But if you can't handle me at my worst, then you sure as hell don't deserve me at my best.",
     source: "Marilyn Monroe",
@@ -61,10 +64,14 @@ const quotes = [
 
 // create a function to have randomly a quote
 function getRandomQuote(){
+  if(quotes.length == 0){
+    quotes = viewedQuotes.splice(0, viewedQuotes.length);
+  }
   let randomNbr = Math.floor(Math.random() * quotes.length);
-  let randomQuotes = quotes[randomNbr];
+  let randomQuotes = quotes.splice(randomNbr,1)[0];
+  viewedQuotes.push(randomQuotes)
   return randomQuotes;
-}
+  }
 
 // function for getting a random color
 function getRandomColor(){

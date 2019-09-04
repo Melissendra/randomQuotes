@@ -106,7 +106,12 @@ body {
 }
 
 @media (max-width: 420px) {
+  #quote-box{
+    top: 12%;
+  }
+
   #loadQuote{
-    margin-bottom: 10%;
+    margin-top: 20px;
+    bottom: 10%;
   }
 }
